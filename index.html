@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="index.css" />
+    <title>Jefferson Jalandoon</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-container">
+        <a href="#home" style="text-decoration:none;">         
+            <span class="logo-text">J</span>          
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+        <label for="nav-toggle" class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <div class="nav-links">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="profile">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h3>Hi! I'm</h3>
+            <h1>JEFFERSON JALANDOON</h1>
+            <h2>Web Developer</h2>
+            <p class="hero-description">
+              I Love to Code. I Live to Learn. Let's Build Something Awesome.
+            </p>
+            <div class="hero-cta">
+              <a href="#projects" class="cta-button primary">View My Work</a>
+              <a href="#contact" class="cta-button secondary">Let's Talk</a>
+              <a href="JEFFERSON_JALANDOON_Resume.pdf" class="cta-button secondary" title="Download" download>Resume</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img class="avatar" src="image/jeff.png" alt="Jefferson's photo" />
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="https://github.com/bommer153" target="_blank">
+            <img src="image/github.svg" alt="GitHub" class="social-icon" />
+          </a>
+          <a
+            href="https://linkedin.com/in/jefferson-jalandoon-61669427a/"
+            target="_blank"
+          >
+            <img src="image/linkedin.svg" alt="LinkedIn" class="social-icon" />
+          </a>
+          <a href="https://facebook.com/aow.cc" target="_blank">
+            <img src="image/facebook.svg" alt="Facebook" class="social-icon" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-column">
+            <div class="about-card">
+              <div class="about-header">
+                <div class="about-icon">
+                  <img src="image/information.png" alt="About Icon" />
+                </div>
+                <h3>Who I Am</h3>
+              </div>
+              <p>
+                I am a passionate web developer with a keen eye for detail and a
+                love for creating seamless user experiences. My journey in web
+                development started with a curiosity about how things work on
+                the internet, which evolved into a professional pursuit of
+                building elegant and efficient web solutions.
+              </p>
+            </div>
+          </div>
+          <div class="about-column">
+            <div class="about-card">
+              <div class="about-header">
+                <div class="about-icon">
+                  <img src="image/tech.png" alt="Hobbies Icon" />
+                </div>
+                <h3>My Hobbies</h3>
+              </div>
+              <ul class="hobbies-list">
+                <li>
+                  <img src="image/coding.png" alt="Coding" class="hobby-icon" />
+                  <div class="hobby-info">
+                    <span class="hobby-title">Coding</span>
+                    <span class="hobby-desc"
+                      >Personal projects and learning</span
+                    >
+                  </div>
+                </li>
+                <li>
+                  <img
+                    src="image/problem-solving.png"
+                    alt="Problem Solving"
+                    class="hobby-icon"
+                  />
+                  <div class="hobby-info">
+                    <span class="hobby-title">Problem Solving</span>
+                    <span class="hobby-desc"
+                      >Solving coding challenges on <a target="_blank" href="https://leetcode.com/u/tyAXuZD5c8/">LeetCode</a> and <a target="_blank" href="https://www.codewars.com/users/bommer153">CodeWars</a></span
+                    >
+                  </div>
+                </li>
+                <li>
+                  <img
+                    src="image/tech-reading.png"
+                    alt="Tech Reading"
+                    class="hobby-icon"
+                  />
+                  <div class="hobby-info">
+                    <span class="hobby-title">Tech Reading</span>
+                    <span class="hobby-desc"
+                      >Reading dev blogs and documentation</span
+                    >
+                  </div>
+                </li>
+                <li>
+                  <img src="image/gaming.png" alt="Gaming" class="hobby-icon" />
+                  <div class="hobby-info">
+                    <span class="hobby-title">Gaming</span>
+                    <span class="hobby-desc">Strategic games and RPGs</span>
+                  </div>
+                </li>
+                <li>
+                  <img src="image/anime.png" alt="Anime" class="hobby-icon" />
+                  <div class="hobby-info">
+                    <span class="hobby-title">Watching Anime</span>
+                    <span class="hobby-desc">Action and adventure series</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="image/idgen.png" alt="ID Generator" />
+            </div>
+            <div class="project-content">
+              <h3>ID Maker</h3>
+              <p>
+                An ID maker is a tool or service used to design and print
+                professional identification cards quickly and easily.
+              </p>
+              <div class="project-tech">
+                <span>PHP</span>
+                <span>Laravel</span>
+                <span>JavaScript</span>
+                <span>MySQL</span>
+              </div>
+              <a href="https://github.com/bommer153" class="project-link"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="image/jobPortal.png" alt="Job Portal Project" />
+            </div>
+            <div class="project-content">
+              <h3>Job Portal Website</h3>
+              <p>
+                A full-featured job portal with user authentication, job
+                listings, and application management. Built with Laravel and
+                MySQL.
+              </p>
+              <div class="project-tech">
+                <span>Laravel</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+                <span>React</span>
+                <span>Inertia.js</span>
+              </div>
+              <a
+                href="https://tcujobportal-main-4mukem.laravel.cloud/"
+                class="project-link"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="image/agrina.png" alt="Agrina Ecommerce" />
+            </div>
+            <div class="project-content">
+              <h3>Agrina Ecommerce</h3>
+              <p>
+                An agriculture e-commerce platform enables farmers and buyers to
+                trade products like seeds, tools, and produce online, improving
+                access and efficiency.
+              </p>
+              <div class="project-tech">
+                <span>PHP</span>
+                <span>Laravel</span>
+                <span>JavaScript</span>
+                <span>jQuery/AJAX</span>
+                <span>MySQL</span>
+              </div>
+              <a
+                href="https://github.com/bommer153/agriNa"
+                class="project-link"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="image/tabulation.png" alt="Pageant Tabulation System" />
+            </div>
+            <div class="project-content">
+              <h3>Pageant Tabulation System</h3>
+              <p>
+                A Pageant Tabulation System is a software used to record,
+                calculate, and display scores in beauty pageants, ensuring
+                accurate and efficient results.
+              </p>
+              <div class="project-tech">
+                <span>PHP</span>
+                <span>Laravel</span>
+                <span>JavaScript</span>
+                <span>jQuery/AJAX</span>
+                <span>MySQL</span>
+              </div>
+              <a
+                href="https://github.com/bommer153/foundation"
+                class="project-link"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+           <div class="project-card">
+            <div class="project-image">
+              <img src="image/tabulation.png" alt="Pageant Tabulation System" />
+            </div>
+            <div class="project-content">
+              <h3>PokeMatch Memory Game</h3>
+              <p>
+                Pokematch Memory Game is a fun and interactive card-matching game where players flip cards to find matching pairs of Pokémon. It's a great way to test your memory and enjoy your favorite Pokémon characters at the same time!
+              </p>
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>JSON API</span>              
+              </div>
+              <a
+                href="https://pokemon-master-memory.onrender.com/"
+                class="project-link"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="skills-subtitle">
+          A blend of technical expertise and creative problem-solving.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <img src="image/html.png" alt="HTML5" class="skill-img" />
+            <span class="skill-title">HTML5</span>
+            <div class="skill-info">
+              <p>• Proficient in semantic HTML5 markup and best practices</p>
+              <p>• Experience with forms and tables</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <img src="image/css.png" alt="CSS3" class="skill-img" />
+            <span class="skill-title">CSS3</span>
+            <div class="skill-info">
+              <p>• Advanced responsive design using Flexbox and Grid</p>
+              <p>• CSS transitions and transforms</p>
+              <p>• Cross-browser compatibility and media queries</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <img
+              src="image/javascript.png"
+              alt="JavaScript"
+              class="skill-img"
+            />
+            <span class="skill-title">JavaScript</span>
+            <div class="skill-info">
+              <p>• ES6+ features and modern JavaScript practices</p>
+              <p>• DOM manipulation and event handling</p>
+              <p>• API integration and AJAX requests</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <img src="image/react.png" alt="Git" class="skill-img" />
+            <span class="skill-title">React</span>
+            <div class="skill-info">
+              <p>• State and props management</p>
+              <p>• Component</p>
+              <p>• React hooks (useState, useEffect, etc.)</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <img src="image/inertia.png" alt="Inertia.js" class="skill-img" />
+            <span class="skill-title">Inertia.js</span>
+            <div class="skill-info">
+              <p>• SPA development</p>
+              <p>• Bridges Laravel backend with React frontend</p>
+              <p>• Forms and error handling using useForm()</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <img src="image/php.png" alt="PHP" class="skill-img" />
+            <span class="skill-title">PHP</span>
+            <div class="skill-info">
+              <p>• Object-oriented programming in PHP</p>
+              <p>• Database integration and CRUD operations</p>
+              <p>• Security best practices and input validation</p>
+              <p>• RESTful API development</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <img src="image/laravel.png" alt="Laravel" class="skill-img" />
+            <span class="skill-title">Laravel</span>
+            <div class="skill-info">
+              <p>• MVC architecture implementation</p>
+              <p>• Eloquent ORM and database migrations</p>
+              <p>• Authentication, authorization, and middleware</p>
+              <p>• Blade templating and form validation</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <img src="image/mysql.png" alt="MySQL" class="skill-img" />
+            <span class="skill-title">MySQL</span>
+            <div class="skill-info">
+              <p>• Database design and normalization</p>
+              <p>• Complex queries and joins</p>
+              <p>• Indexing and query optimization</p>
+              <p>• Backup and security management</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <img src="image/gitL.png" alt="Git" class="skill-img" />
+            <span class="skill-title">Git</span>
+            <div class="skill-info">
+              <p>• Version control and collaboration workflows</p>
+              <p>• Branch management and merging strategies</p>
+              <p>• GitHub/GitLab repository management</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-grid">
+          <div class="experience-card">
+            <div class="experience-header">
+              <h3>Computer Operator III</h3>
+              <span class="company">Department of Science and Technology</span>
+              <span class="date">2025 - Present</span>
+            </div>
+            <ul class="experience-details">
+              <li>ICT equipment troubleshooting and maintenance.</li>
+              <li>Conduct of preventive maintenance.</li>
+              <li>
+                Facilitate system development and customization for various
+                system.
+              </li>
+            </ul>
+          </div>
+          <div class="experience-card">
+            <div class="experience-header">
+              <h3>IT Support</h3>
+              <span class="company">Taguig City University</span>
+              <span class="date">2019 - 2024</span>
+            </div>
+            <ul class="experience-details">
+              <li>
+                Worked with PHP and MySQL to create dynamic web applications
+              </li>
+              <li>Maintain and update the university's website.</li>
+              <li>Assist in the development of ICT projects and programs.</li>
+              <li>Provide technical support to the university's ICT needs.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <img src="image/email.png" alt="Email" class="contact-icon" />
+              <div class="contact-details">
+                <h3>Email</h3>
+                <p><a style="text-decoration:none;" href="mailto:jaxjalandoon@gmail.com">jaxjalandoon@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <img
+                src="image/location.png"
+                alt="Location"
+                class="contact-icon"
+              />
+              <div class="contact-details">
+                <h3>Location</h3>
+                <p>Taguig City, Philippines</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <img
+                src="image/contact.png"
+                alt="Location"
+                class="contact-icon"
+              />
+
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <p>(+63)966-400-5231</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Jefferson's Portfolio. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
