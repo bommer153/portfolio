@@ -122,7 +122,7 @@ const Experience = () => {
               <div className="hidden sm:block flex-shrink-0">
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl flex items-center justify-center overflow-hidden">
                   <img 
-                    src="/image/uplift.png" 
+                    src="./image/uplift.png" 
                     alt="Uplift Code Camp Logo" 
                     className="w-12 h-12 object-contain"
                   />

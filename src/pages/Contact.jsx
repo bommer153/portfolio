@@ -1,19 +1,19 @@
 const Contact = () => {
   const contactInfo = [
     {
-      icon: '/image/email.png',
+      icon: './image/email.png',
       title: 'Email',
       content: 'jaxjalandoon@gmail.com',
       link: 'mailto:jaxjalandoon@gmail.com'
     },
     {
-      icon: '/image/location.png',
+      icon: './image/location.png',
       title: 'Location',
       content: 'Taguig City, Philippines',
       link: null
     },
     {
-      icon: '/image/contact.png',
+      icon: './image/contact.png',
       title: 'Phone',
       content: '(+63)966-400-5231',
       link: 'tel:+639664005231'
@@ -133,7 +133,7 @@ const Contact = () => {
                     clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
                   }}
                 >
-                  <img src="/image/github.svg" alt="GitHub" className="w-6 h-6 filter brightness-0 invert" />
+                  <img src="./image/github.svg" alt="GitHub" className="w-6 h-6 filter brightness-0 invert" />
                 </a>
                 <a
                   href="https://linkedin.com/in/jefferson-jalandoon-61669427a/"
@@ -144,7 +144,7 @@ const Contact = () => {
                     clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)'
                   }}
                 >
-                  <img src="/image/linkedin.svg" alt="LinkedIn" className="w-6 h-6 filter brightness-0 invert" />
+                  <img src="./image/linkedin.svg" alt="LinkedIn" className="w-6 h-6 filter brightness-0 invert" />
                 </a>
                 <a
                   href="https://facebook.com/aow.cc"
@@ -155,7 +155,7 @@ const Contact = () => {
                     clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
                   }}
                 >
-                  <img src="/image/facebook.svg" alt="Facebook" className="w-6 h-6 filter brightness-0 invert" />
+                  <img src="./image/facebook.svg" alt="Facebook" className="w-6 h-6 filter brightness-0 invert" />
                 </a>
               </div>
             </div>

@@ -9,7 +9,7 @@ const Home = () => {
          <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/image/hero.jpg)',
+            backgroundImage: 'url(./image/hero.jpg)',
             opacity: 0.01
           }}
         ></div> 
@@ -59,7 +59,7 @@ const Home = () => {
             <div className="flex justify-center mb-8">
               <div className="relative">
                 <img 
-                  src="/image/hero-transparen.png" 
+                  src="./image/hero-transparen.png" 
                   alt="Jefferson Jalandoon" 
                   className="w-50 h-50 object-cover"
                 />
@@ -122,7 +122,7 @@ const Home = () => {
                     clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
                   }}
                 >
-                  <img src="/image/github.svg" alt="GitHub" className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert group-hover:filter-none transition-all duration-300" />
+                  <img src="./image/github.svg" alt="GitHub" className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert group-hover:filter-none transition-all duration-300" />
                 </a>
                 <a
                   href="https://linkedin.com/in/jefferson-jalandoon-61669427a/"
@@ -133,7 +133,7 @@ const Home = () => {
                     clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)'
                   }}
                 >
-                  <img src="/image/linkedin.svg" alt="LinkedIn" className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert group-hover:filter-none transition-all duration-300" />
+                  <img src="./image/linkedin.svg" alt="LinkedIn" className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert group-hover:filter-none transition-all duration-300" />
                 </a>
                 <a
                   href="https://facebook.com/aow.cc"
@@ -144,7 +144,7 @@ const Home = () => {
                     clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
                   }}
                 >
-                  <img src="/image/facebook.svg" alt="Facebook" className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert group-hover:filter-none transition-all duration-300" />
+                  <img src="./image/facebook.svg" alt="Facebook" className="w-5 h-5 sm:w-6 sm:h-6 filter brightness-0 invert group-hover:filter-none transition-all duration-300" />
                 </a>
               </div>
             </div>

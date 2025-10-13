@@ -1,17 +1,17 @@
 const About = () => {
   const keyInterests = [
     {
-      icon: '/image/coding.png',
+      icon: './image/coding.png',
       title: 'Full-Stack Development',
       description: 'Building end-to-end web applications with modern technologies'
     },
     {
-      icon: '/image/problem-solving.png',
+      icon: './image/problem-solving.png',
       title: 'Problem Solving',
       description: 'Solving complex challenges on LeetCode and CodeWars'
     },
     {
-      icon: '/image/tech-reading.png',
+      icon: './image/tech-reading.png',
       title: 'Continuous Learning',
       description: 'Staying updated with latest technologies and best practices'
     }
