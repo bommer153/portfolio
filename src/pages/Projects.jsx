@@ -310,7 +310,7 @@ const Projects = () => {
                   }}
                 >
                   <div 
-                    className="group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 w-[6000px] h-[550px] cursor-pointer rounded-xl"
+                    className="group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 w-[600px] h-[550px] cursor-pointer rounded-xl"
                     onClick={() => handleProjectClick(project)}
                     style={{
                       transform: isActive ? 'translateZ(0)' : 'translateZ(-10px)',
