@@ -59,6 +59,16 @@ const Projects = () => {
     },
     {
       id: 5,
+      title: 'Sober Living Website',
+      description: 'A Florida-based sober house website providing information about recovery services, facilities, and support for individuals seeking a sober living environment. Features a clean, professional design with easy navigation and comprehensive information about the sober living community.',
+      image: './image/sober-house.png',
+      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'HTML5'],
+      link: 'https://sober-house.vercel.app/',
+      external: true,
+      gradient: 'from-teal-500 to-cyan-500'
+    },
+    {
+      id: 7,
       title: 'PokeMatch Memory Game',
       description: 'Pokematch Memory Game is a fun and interactive card-matching game where players flip cards to find matching pairs of Pokémon. It\'s a great way to test your memory and enjoy your favorite Pokémon characters at the same time!',
       image: './image/pokematch.png',
@@ -68,7 +78,7 @@ const Projects = () => {
       gradient: 'from-indigo-500 to-purple-500'
     },
     {
-      id: 6,
+      id: 8,
       title: 'Bit9o',
       description: 'Bit9o is a real-time, web-based bingo game built with the MERN stack, reimagined for quick and exciting gameplay. It lets a host create a game room and players join instantly using a room code — no sign-ups, no hassle. Once the game starts, the host draws numbers live, and all players\' cards update in real time. With its clean UI, mobile-friendly design, and sound effects, Bit9o brings the classic bingo feel into a modern, interactive experience you can play anywhere.',
       image: './image/bit9o.png',
@@ -76,6 +86,16 @@ const Projects = () => {
       link: 'https://bit9o.com',
       external: true,
       gradient: 'from-cyan-500 to-blue-500'
+    },
+    {
+      id: 9,
+      title: 'WHO WANTS TO BE A QUADRILLIONAIRE?',
+      description: 'A fun and challenging quiz game inspired by "Who Wants to Be a Millionaire" but with a twist - you\'re aiming for quadrillions! Test your knowledge across various categories with multiple-choice questions that get progressively harder. Features include lifelines (50/50, Phone a Friend, Ask the Audience), stunning animations, and an engaging UI that keeps you on the edge of your seat. Can you make it to the top and become a quadrillionaire?',
+      image: './image/quad.png',
+      technologies: ['React', 'JavaScript', 'Tailwind CSS', 'HTML5', 'JSON'],
+      link: 'https://quadrilionaire-quiz.onrender.com/',
+      external: true,
+      gradient: 'from-yellow-500 to-orange-500'
     }  ]
 
 
@@ -83,7 +103,7 @@ const Projects = () => {
     if (isAutoPlaying) {
       intervalRef.current = setInterval(() => {
         setCurrentProject((prev) => (prev + 1) % projects.length)
-      }, 10000) 
+      }, 50000) 
     } else {
       if (intervalRef.current) {
         clearInterval(intervalRef.current)
@@ -187,7 +207,7 @@ const Projects = () => {
     setIsAutoPlaying(prev => !prev)
   }, [])
 
-  // Swipe functions with shuffle effect
+
   const swipeNext = useCallback(() => {
     triggerShuffle()
     nextProject()

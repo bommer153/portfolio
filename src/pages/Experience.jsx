@@ -49,24 +49,35 @@ const Experience = () => {
 
         <div className="relative">
        
-          <div className="hidden sm:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-400 to-blue-500"
-            style={{
-              clipPath: 'polygon(0 0, calc(100% - 2px) 0, 100% 100%, 2px 100%)'
-            }}
-          ></div>
+          <div className="hidden sm:block absolute left-8 top-0 bottom-0">
+            {/* Enhanced Milestone Timeline */}
+            <div className="relative w-1 h-full">
+              {/* Main timeline line with gradient */}
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 rounded-full shadow-lg shadow-blue-500/30"></div>
+              
+              {/* Animated pulse effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 rounded-full animate-pulse opacity-60"></div>
+              
+              {/* Timeline dots pattern */}
+              <div className="absolute inset-0" 
+                   style={{
+                     backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 2px, transparent 2px)',
+                     backgroundSize: '4px 20px',
+                     backgroundRepeat: 'repeat-y',
+                     backgroundPosition: 'center'
+                   }}>
+              </div>
+            </div>
+          </div>
 
           <div className="space-y-8">
             {experiences.map((experience, index) => (
               <div key={index} className="relative flex items-start gap-6">
           
+                {/* Milestone number positioned on timeline */}
                 <div className="hidden sm:block relative z-10 flex-shrink-0">
-                  <div 
-                    className="w-16 h-12 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg"
-                    style={{
-                      clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
-                    }}
-                  >
-                    <span className="text-white font-bold text-lg">{experiences.length - index}</span>
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white/30">
+                    <span className="text-white font-bold text-sm">{experiences.length - index}</span>
                   </div>
                 </div>
 
@@ -90,11 +101,12 @@ const Experience = () => {
                     {experience.responsibilities.map((responsibility, respIndex) => (
                       <div
                         key={respIndex}
-                        className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 border border-slate-600/30 hover:border-blue-500/30"
+                        className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 border-b-2 border-slate-500/70 hover:border-blue-400/80"
                         style={{
                           animationDelay: `${respIndex * 100}ms`,
                           animation: 'fadeInUp 0.6s ease-out forwards',
-                          clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
+                          clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
+                          borderBottomColor: 'rgba(156, 163, 175, 0.6)'
                         }}
                       >
                         <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0 mt-2"></div>
@@ -119,13 +131,10 @@ const Experience = () => {
 
           <div className="bg-slate-800/30 backdrop-blur-sm p-20 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/10 rounded-xl">
             <div className="flex items-start gap-6">          
-              <div className="hidden sm:block flex-shrink-0">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="./image/uplift.png" 
-                    alt="Uplift Code Camp Logo" 
-                    className="w-12 h-12 object-contain"
-                  />
+              {/* Milestone number for Professional Development */}
+              <div className="hidden sm:block relative z-10 flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white/30">
+                  <span className="text-white font-bold text-sm">PD</span>
                 </div>
               </div>
 
@@ -158,11 +167,12 @@ const Experience = () => {
                   <h4 className="text-white font-semibold text-lg mb-3 text-left">Key Highlights:</h4>
                   <div className="space-y-3">
                     <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border border-slate-600/30 hover:border-emerald-500/30"
+                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
                       style={{
                         animationDelay: '0ms',
                         animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
+                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
+                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
@@ -171,11 +181,11 @@ const Experience = () => {
                       </p>
                     </div>
                     <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border border-slate-600/30 hover:border-emerald-500/30"
+                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
                       style={{
                         animationDelay: '100ms',
                         animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
+                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)'
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
@@ -184,11 +194,12 @@ const Experience = () => {
                       </p>
                     </div>
                     <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border border-slate-600/30 hover:border-emerald-500/30"
+                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
                       style={{
                         animationDelay: '200ms',
                         animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
+                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
+                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
@@ -198,11 +209,12 @@ const Experience = () => {
                     </div>
 
                     <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border border-slate-600/30 hover:border-emerald-500/30"
+                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
                       style={{
                         animationDelay: '300ms',
                         animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
+                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
+                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
@@ -211,11 +223,12 @@ const Experience = () => {
                       </p>
                     </div>
                     <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border border-slate-600/30 hover:border-emerald-500/30"
+                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
                       style={{
                         animationDelay: '400ms',
                         animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
+                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
+                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
@@ -224,11 +237,12 @@ const Experience = () => {
                       </p>
                     </div>
                     <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border border-slate-600/30 hover:border-emerald-500/30"
+                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
                       style={{
                         animationDelay: '500ms',
                         animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
+                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
+                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
@@ -237,11 +251,12 @@ const Experience = () => {
                       </p>
                     </div>
                     <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border border-slate-600/30 hover:border-emerald-500/30"
+                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
                       style={{
                         animationDelay: '600ms',
                         animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
+                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
+                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>

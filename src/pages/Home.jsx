@@ -68,8 +68,8 @@ const Home = () => {
             </div>
 
          
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-thin text-white mb-4 tracking-wider break-words">
-              JEFFERSON
+            <h1 className="text-2xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-thin text-white mb-4 tracking-wider break-words">
+              JEFFERSON JALANDOON
             </h1>
             
             <h2 className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-6 sm:mb-8 font-light">
