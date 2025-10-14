@@ -96,7 +96,8 @@ const Projects = () => {
       link: 'https://quadrilionaire-quiz.onrender.com/',
       external: true,
       gradient: 'from-yellow-500 to-orange-500'
-    }  ]
+    },
+  ]
 
 
   useEffect(() => {
@@ -274,7 +275,7 @@ const Projects = () => {
                     x: -60,
                     y: -8,
                     rotate: -15,
-                    opacity: 0.8
+                    opacity: 1
                   }
                 } else if (isNext) {
                   return {
@@ -283,7 +284,7 @@ const Projects = () => {
                     x: 60,
                     y: -8,
                     rotate: 15,
-                    opacity: 0.8
+                    opacity: 1
                   }
                 } else if (isSecondNext) {
                   return {
@@ -292,7 +293,7 @@ const Projects = () => {
                     x: 90,
                     y: -12,
                     rotate: 25,
-                    opacity: 0.6
+                    opacity: 1
                   }
                 } else if (isSecondPrev) {
                   return {
@@ -301,7 +302,7 @@ const Projects = () => {
                     x: -90,
                     y: -12,
                     rotate: -25,
-                    opacity: 0.6
+                    opacity: 1
                   }
                 }
                 return {
@@ -310,7 +311,7 @@ const Projects = () => {
                   x: 0,
                   y: 0,
                   rotate: 0,
-                  opacity: 0
+                  opacity: 1
                 }
               }
 
@@ -330,8 +331,7 @@ const Projects = () => {
                   }}
                 >
                   <div 
-                    className="group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 w-[600px] h-[550px] cursor-pointer rounded-xl"
-                    onClick={() => handleProjectClick(project)}
+                    className="group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 w-[400px] h-[550px] cursor-pointer rounded-xl"
                     style={{
                       transform: isActive ? 'translateZ(0)' : 'translateZ(-10px)',
                       filter: isActive ? 'none' : 'blur(1px)',
@@ -339,6 +339,7 @@ const Projects = () => {
                         ? '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.1)' 
                         : '0 10px 25px -5px rgba(0, 0, 0, 0.3)'
                     }}
+                    onClick={() => handleProjectClick(project)}
                   >
                  
                     <div className="relative h-64 overflow-hidden">
