@@ -110,7 +110,7 @@ const Experience = () => {
                         }}
                       >
                         <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0 mt-2"></div>
-                        <p className="text-gray-300 leading-relaxed text-sm">
+                        <p className="text-white leading-relaxed text-sm">
                           {responsibility}
                         </p>
                       </div>
@@ -130,24 +130,26 @@ const Experience = () => {
           </div>
 
           <div className="bg-slate-800/30 backdrop-blur-sm p-20 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/10 rounded-xl">
-            <div className="flex items-start gap-6">          
-              {/* Milestone number for Professional Development */}
-              <div className="hidden sm:block relative z-10 flex-shrink-0">
-                <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white/30">
-                  <span className="text-white font-bold text-sm">PD</span>
-                </div>
-              </div>
-
-             
+            <div className="flex items-start gap-6">     
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                   <div>
                     <h3 className="text-2xl font-semibold text-white mb-2">
                       Full Stack Development Training Course
                     </h3>
-                    <p className="text-emerald-400 font-semibold text-lg">
-                      Uplift Code Camp
-                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="relative group">
+                        <img 
+                          src="./image/uplift.png" 
+                          alt="Uplift Code Camp Logo" 
+                          className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 drop-shadow-lg"
+                        />
+                        <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </div>
+                      <p className="text-emerald-400 font-semibold text-lg">
+                        Uplift Code Camp
+                      </p>
+                    </div>
                   </div>
                   <div className="flex flex-col sm:items-end gap-2">
                     <span className="text-emerald-400 font-semibold text-sm bg-emerald-500/10 px-3 py-1 rounded-full">
@@ -176,7 +178,7 @@ const Experience = () => {
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-white text-sm leading-relaxed">
                         Learned MERN stack: MongoDB, Express.js, React.js, and Node.js
                       </p>
                     </div>
@@ -189,7 +191,7 @@ const Experience = () => {
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-white text-sm leading-relaxed">
                         Learned Git and GitHub for collaborative development workflows
                       </p>
                     </div>
@@ -203,7 +205,7 @@ const Experience = () => {
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-white text-sm leading-relaxed">
                         Built projects using modern web technologies
                       </p>
                     </div>
@@ -218,7 +220,7 @@ const Experience = () => {
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-white text-sm leading-relaxed">
                         Developed responsive web applications with React.js frontend
                       </p>
                     </div>
@@ -232,7 +234,7 @@ const Experience = () => {
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-white text-sm leading-relaxed">
                         Built RESTful APIs using Express.js and Node.js backend
                       </p>
                     </div>
@@ -246,7 +248,7 @@ const Experience = () => {
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-white text-sm leading-relaxed">
                         Implemented MongoDB database design and management
                       </p>
                     </div>
@@ -260,7 +262,7 @@ const Experience = () => {
                       }}
                     >
                       <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-white text-sm leading-relaxed">
                         Practiced version control and team collaboration with Git
                       </p>
                     </div>

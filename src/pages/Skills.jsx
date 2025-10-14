@@ -104,7 +104,7 @@ const Skills = () => {
                           alt={skill.name} 
                           className="absolute w-8 h-8 group-hover:scale-110 transition-transform duration-200 opacity-0 group-hover:drop-shadow-lg"
                           style={{
-                            filter: 'brightness(0) saturate(100%) invert(1) contrast(1)',
+                            filter: (skill.name === 'Inertia.js' || skill.name === 'Render') ? 'none' : 'brightness(0) saturate(100%) invert(1) contrast(1)',
                             width: '32px',
                             height: '32px',
                             fill: 'white',
