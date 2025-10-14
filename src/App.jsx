@@ -10,15 +10,15 @@ import Footer from './components/Footer'
 function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-x-hidden w-full max-w-full">
-      {/* Hero-Inspired Background */}
+ 
       <div className="fixed inset-0 z-0">
-        {/* Main Background Gradient */}
+ 
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
         
-        {/* Animated Background Pattern */}
+
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/15 to-blue-500/10 animate-pulse"></div>
         
-        {/* Grid Pattern Overlay */}
+  
         <div 
           className="absolute inset-0 opacity-20"
           style={{
