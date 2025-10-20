@@ -40,18 +40,18 @@ const About = () => {
             </div>
 
        
-            <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
                 {keyInterests.map((interest, index) => (
                   <div
                     key={index}
                     className="bg-slate-800/30 backdrop-blur-sm p-3 sm:p-4 md:p-6 lg:p-8 hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 group border border-slate-700/30 rounded-xl text-center w-full"
                   >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300 rounded-lg">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4 lg:mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300 rounded-lg">
                       <img
                         src={interest.icon}
                         alt={interest.title}
-                        className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 filter brightness-0 invert"
+                        className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 filter brightness-0 invert"
                       />
                     </div>
                     <h4 className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors duration-300 break-words">

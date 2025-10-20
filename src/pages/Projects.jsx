@@ -220,16 +220,16 @@ const Projects = () => {
   }, [prevProject, triggerShuffle])
 
   return (
-    <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-20 relative">
-      <div className="container mx-auto px-6 w-full max-w-7xl py-8">
-        <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-thin text-white mb-6 tracking-wider">
+    <section id="projects" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20 relative">
+      <div className="container mx-auto px-2 sm:px-6 w-full max-w-7xl py-4 sm:py-8">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-white mb-4 sm:mb-6 tracking-wider">
             PROJECTS
           </h2>
           
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8"></div>
+          <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 sm:mb-8"></div>
           
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
             A showcase of my recent work and side projects
           </p>
         </div>
@@ -238,7 +238,7 @@ const Projects = () => {
         <div className="relative max-w-9xl mx-auto">
           <div 
             ref={carouselRef}
-            className={`relative h-[700px] lg:h-[800px] flex items-center justify-center transition-all duration-300 ${
+            className={`relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] flex items-center justify-center transition-all duration-300 ${
               isShuffling ? 'scale-105' : 'scale-100'
             }`}
             onTouchStart={handleTouchStart}
@@ -259,6 +259,9 @@ const Projects = () => {
 
         
               const getShufflePosition = () => {
+                const isMobile = window.innerWidth < 640
+                const isTablet = window.innerWidth < 1024
+                
                 if (isActive) {
                   return {
                     z: 50,
@@ -271,37 +274,37 @@ const Projects = () => {
                 } else if (isPrev) {
                   return {
                     z: 40,
-                    scale: 0.85,
-                    x: -60,
-                    y: -8,
-                    rotate: -15,
+                    scale: isMobile ? 0.7 : isTablet ? 0.8 : 0.85,
+                    x: isMobile ? -30 : isTablet ? -45 : -60,
+                    y: isMobile ? -4 : isTablet ? -6 : -8,
+                    rotate: isMobile ? -8 : isTablet ? -12 : -15,
                     opacity: 1
                   }
                 } else if (isNext) {
                   return {
                     z: 40,
-                    scale: 0.85,
-                    x: 60,
-                    y: -8,
-                    rotate: 15,
+                    scale: isMobile ? 0.7 : isTablet ? 0.8 : 0.85,
+                    x: isMobile ? 30 : isTablet ? 45 : 60,
+                    y: isMobile ? -4 : isTablet ? -6 : -8,
+                    rotate: isMobile ? 8 : isTablet ? 12 : 15,
                     opacity: 1
                   }
                 } else if (isSecondNext) {
                   return {
                     z: 30,
-                    scale: 0.7,
-                    x: 90,
-                    y: -12,
-                    rotate: 25,
+                    scale: isMobile ? 0.5 : isTablet ? 0.6 : 0.7,
+                    x: isMobile ? 45 : isTablet ? 70 : 90,
+                    y: isMobile ? -6 : isTablet ? -9 : -12,
+                    rotate: isMobile ? 12 : isTablet ? 20 : 25,
                     opacity: 1
                   }
                 } else if (isSecondPrev) {
                   return {
                     z: 30,
-                    scale: 0.7,
-                    x: -90,
-                    y: -12,
-                    rotate: -25,
+                    scale: isMobile ? 0.5 : isTablet ? 0.6 : 0.7,
+                    x: isMobile ? -45 : isTablet ? -70 : -90,
+                    y: isMobile ? -6 : isTablet ? -9 : -12,
+                    rotate: isMobile ? -12 : isTablet ? -20 : -25,
                     opacity: 1
                   }
                 }
@@ -331,7 +334,7 @@ const Projects = () => {
                   }}
                 >
                   <div 
-                    className="group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 w-[400px] h-[550px] cursor-pointer rounded-xl"
+                    className="group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] cursor-pointer rounded-xl"
                     style={{
                       transform: isActive ? 'translateZ(0)' : 'translateZ(-10px)',
                       filter: isActive ? 'none' : 'blur(1px)',
@@ -342,11 +345,11 @@ const Projects = () => {
                     onClick={() => handleProjectClick(project)}
                   >
                  
-                    <div className="relative h-64 overflow-hidden">
+                    <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                       <div className="w-full h-full cursor-pointer touch-manipulation">
                         {isLoading ? (
                           <div className="w-full h-full bg-slate-700 animate-pulse flex items-center justify-center">
-                            <div className="w-12 h-12 border-4 border-emerald-400 border-t-transparent rounded-full animate-spin"></div>
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-4 border-emerald-400 border-t-transparent rounded-full animate-spin"></div>
                           </div>
                         ) : (
                           <img
@@ -361,21 +364,21 @@ const Projects = () => {
                         )}
                         <div className="w-full h-full bg-slate-700 items-center justify-center hidden">
                           <div className="text-center text-gray-400">
-                            <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            <p className="text-sm">Image not available</p>
+                            <p className="text-xs sm:text-sm">Image not available</p>
                           </div>
                         </div>
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none"></div>
-                      <div className="absolute top-4 right-4 pointer-events-none">
-                        <div className="w-3 h-3 bg-emerald-400 rounded-full shadow-lg"></div>
+                      <div className="absolute top-2 sm:top-4 right-2 sm:right-4 pointer-events-none">
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-400 rounded-full shadow-lg"></div>
                       </div>
-                      <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl font-semibold text-sm shadow-lg">
+                      <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
+                        <div className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 bg-emerald-600 text-white rounded-xl font-semibold text-xs sm:text-sm shadow-lg">
                           View Project
-                          <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
                         </div>
@@ -383,18 +386,18 @@ const Projects = () => {
                     </div>
 
                        
-                        <div className="p-6">
-                      <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-emerald-400 transition-all duration-500 ease-out group-hover:translate-x-1">
+                        <div className="p-3 sm:p-4 md:p-6">
+                      <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3 group-hover:text-emerald-400 transition-all duration-500 ease-out group-hover:translate-x-1">
                         {project.title}
                       </h3>
-                      <p className="text-gray-300 mb-4 leading-relaxed text-sm line-clamp-4 group-hover:text-gray-200 transition-all duration-500 ease-out group-hover:translate-x-1">
+                      <p className="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm line-clamp-3 sm:line-clamp-4 group-hover:text-gray-200 transition-all duration-500 ease-out group-hover:translate-x-1">
                         {project.description}
                       </p>
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-1 sm:gap-1.5">
                         {project.technologies.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="px-2 py-1 bg-slate-700 text-emerald-400 rounded-full text-xs font-medium border border-slate-600 transition-all duration-300 ease-out group-hover:bg-emerald-500/20 group-hover:border-emerald-400 group-hover:scale-105"
+                            className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-slate-700 text-emerald-400 rounded-full text-xs font-medium border border-slate-600 transition-all duration-300 ease-out group-hover:bg-emerald-500/20 group-hover:border-emerald-400 group-hover:scale-105"
                             style={{ transitionDelay: `${techIndex * 50}ms` }}
                           >
                             {tech}
@@ -409,25 +412,25 @@ const Projects = () => {
           </div>
 
    
-          <div className="flex items-center justify-center mt-12 space-x-8">
+          <div className="flex items-center justify-center mt-8 sm:mt-12 space-x-4 sm:space-x-6 md:space-x-8">
            
             <button
               onClick={swipePrev}
-              className="group flex items-center justify-center w-14 h-14 bg-slate-800 rounded-full border border-slate-700 hover:border-emerald-500 transition-all duration-500 ease-out hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/20 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="group flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-slate-800 rounded-full border border-slate-700 hover:border-emerald-500 transition-all duration-500 ease-out hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/20 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-slate-900"
               title="Previous Project (← Arrow Key)"
             >
-              <svg className="w-7 h-7 text-white group-hover:text-emerald-400 transition-all duration-500 ease-out group-hover:translate-x-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white group-hover:text-emerald-400 transition-all duration-500 ease-out group-hover:translate-x-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
        
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
               {projects.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToProject(index)}
-                  className={`w-4 h-4 rounded-full transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-slate-900 ${
+                  className={`w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 rounded-full transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-slate-900 ${
                     index === currentProject
                       ? 'bg-emerald-400 scale-125 shadow-lg shadow-emerald-400/30'
                       : 'bg-slate-600 hover:bg-slate-500 hover:scale-110 hover:bg-emerald-500/50'
@@ -440,10 +443,10 @@ const Projects = () => {
        
             <button
               onClick={swipeNext}
-              className="group flex items-center justify-center w-14 h-14 bg-slate-800 rounded-full border border-slate-700 hover:border-emerald-500 transition-all duration-500 ease-out hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/20 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="group flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-slate-800 rounded-full border border-slate-700 hover:border-emerald-500 transition-all duration-500 ease-out hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/20 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-slate-900"
               title="Next Project (→ Arrow Key)"
             >
-              <svg className="w-7 h-7 text-white group-hover:text-emerald-400 transition-all duration-500 ease-out group-hover:translate-x-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white group-hover:text-emerald-400 transition-all duration-500 ease-out group-hover:translate-x-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
