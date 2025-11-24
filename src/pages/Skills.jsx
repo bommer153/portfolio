@@ -63,7 +63,7 @@ const Skills = () => {
     <section id="skills" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20 relative">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-white mb-4 sm:mb-6 tracking-wider">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-white mb-4 sm:mb-6 tracking-wider section-title-geom">
             SKILLS
           </h2>
           
@@ -72,13 +72,29 @@ const Skills = () => {
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
             A comprehensive toolkit for building modern web applications
           </p>
+          
+          {/* Geometric Notation */}
+          <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
+            <span className="geom-symbol">◢</span>
+            <span className="geom-notation"> Skills</span>
+            <span className="mx-2">=</span>
+            <span className="geom-shape">△</span>
+            <span className="geom-notation"> Frontend</span>
+            <span className="mx-1">+</span>
+            <span className="geom-shape">○</span>
+            <span className="geom-notation"> Backend</span>
+            <span className="mx-1">+</span>
+            <span className="geom-shape">□</span>
+            <span className="geom-notation"> Tools</span>
+            <span className="geom-symbol">◣</span>
+          </div>
         </div>
     
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8 justify-items-center">
           {skillCategories.map((category, categoryIndex) => (
               <div 
                 key={categoryIndex} 
-                className="bg-slate-800/20 backdrop-blur-sm p-3 sm:p-4 md:p-6 hover:bg-slate-800/40 transition-all duration-300 border-2 border-slate-600/60 hover:border-blue-500/80 hover:shadow-2xl hover:shadow-blue-500/20 w-full max-w-xs sm:max-w-sm relative rounded-lg flex flex-col"
+                className="geom-card bg-slate-800/20 backdrop-blur-sm p-3 sm:p-4 md:p-6 hover:bg-slate-800/40 transition-all duration-300 border-2 border-slate-600/60 hover:border-blue-500/80 hover:shadow-2xl hover:shadow-blue-500/20 w-full max-w-xs sm:max-w-sm relative flex flex-col"
                 style={{ height: `auto`, minHeight: `${Math.min(calculatedHeight, 400)}px` }}
               >
               <div className="text-center mb-4 sm:mb-6">
@@ -89,7 +105,7 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                     <div 
                       key={skillIndex} 
-                      className={`group flex items-center gap-3 sm:gap-4 md:gap-5 p-2 sm:p-2.5 bg-gradient-to-r from-slate-700/20 to-slate-600/30 hover:from-blue-500/20 hover:to-purple-500/30 transition-all duration-300 border-b-2 border-slate-500/70 hover:border-blue-400/80 rounded-sm shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 hover:scale-105 ${skillIndex === 0 ? 'border-t-2' : ''}`}
+                      className={`geom-cell group flex items-center gap-3 sm:gap-4 md:gap-5 p-2 sm:p-2.5 bg-gradient-to-r from-slate-700/20 to-slate-600/30 hover:from-blue-500/20 hover:to-purple-500/30 transition-all duration-300 border-b-2 border-slate-500/70 hover:border-blue-400/80 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 hover:scale-105 ${skillIndex === 0 ? 'border-t-2' : ''}`}
                       style={{ 
                         clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0px 100%)',
                         boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 4px rgba(0,0,0,0.3)',

@@ -36,7 +36,7 @@ const Experience = () => {
     <section id="experience" className="min-h-screen flex items-center justify-center px-6 py-20 relative">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl font-thin text-white mb-6 tracking-wider">
+          <h2 className="text-6xl md:text-7xl font-thin text-white mb-6 tracking-wider section-title-geom">
             EXPERIENCE
           </h2>
 
@@ -45,6 +45,22 @@ const Experience = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             My professional experience and career milestones
           </p>
+          
+          {/* Geometric Timeline Notation */}
+          <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
+            <span className="geom-symbol">◢</span>
+            <span className="geom-notation"> Experience</span>
+            <span className="mx-2">=</span>
+            <span className="geom-shape">△</span>
+            <span className="geom-notation"> e₁</span>
+            <span className="mx-1">→</span>
+            <span className="geom-shape">○</span>
+            <span className="geom-notation"> e₂</span>
+            <span className="mx-1">→</span>
+            <span className="geom-shape">□</span>
+            <span className="geom-notation"> eₙ</span>
+            <span className="geom-symbol">◣</span>
+          </div>
         </div>
 
         <div className="relative">
@@ -82,7 +98,7 @@ const Experience = () => {
                 </div>
 
           
-                <div className="flex-1 bg-slate-800/30 backdrop-blur-sm p-20 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 rounded-xl">
+                <div className="geom-card flex-1 bg-slate-800/30 backdrop-blur-sm p-20 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                     <div>
                       <h3 className="text-xl font-semibold text-white mb-1">
@@ -101,7 +117,7 @@ const Experience = () => {
                     {experience.responsibilities.map((responsibility, respIndex) => (
                       <div
                         key={respIndex}
-                        className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 border-b-2 border-slate-500/70 hover:border-blue-400/80"
+                        className="geom-cell group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 border-b-2 border-slate-500/70 hover:border-blue-400/80"
                         style={{
                           animationDelay: `${respIndex * 100}ms`,
                           animation: 'fadeInUp 0.6s ease-out forwards',
@@ -129,7 +145,7 @@ const Experience = () => {
             <p className="text-gray-400">Continuous learning and skill enhancement</p>
           </div>
 
-          <div className="bg-slate-800/30 backdrop-blur-sm p-20 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/10 rounded-xl">
+          <div className="geom-card bg-slate-800/30 backdrop-blur-sm p-20 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/10">
             <div className="flex items-start gap-6">     
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">

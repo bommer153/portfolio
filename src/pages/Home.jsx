@@ -38,16 +38,25 @@ const Home = () => {
         <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-violet-400/20 to-transparent animate-pulse delay-1500"></div>
         
  
+        {/* Geometric Grid Pattern */}
         <div 
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-15"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '80px 80px'
+              repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(59, 130, 246, 0.15) 60px, rgba(59, 130, 246, 0.15) 61px),
+              repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(59, 130, 246, 0.15) 60px, rgba(59, 130, 246, 0.15) 61px)
+            `
           }}
         ></div>
+        
+        {/* Geometric Center Point */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 border-2 border-blue-400/50 transform rotate-45 animate-pulse" style={{clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'}}></div>
+        
+        {/* Geometric Shape Representation */}
+        <div className="absolute top-1/3 right-1/4 opacity-20">
+          <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[25px] border-b-blue-400"></div>
+          <div className="text-purple-400 text-xs mt-2 font-mono">△</div>
+        </div>
       </div>
 
       <div className="w-full px-6 relative z-10">
@@ -68,16 +77,16 @@ const Home = () => {
             </div>
 
          
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-thin text-white mb-3 sm:mb-4 tracking-wider break-words">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-thin text-white mb-3 sm:mb-4 tracking-wider break-words section-title-geom">
               JEFFERSON JALANDOON
             </h1>
             
             <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-4 sm:mb-6 md:mb-8 font-light">
-              Full Stack Developer
+              <span className="geom-symbol">◢</span> Full Stack Developer <span className="geom-symbol">◣</span>
             </h2>
             
             <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-12 px-2">
-              <span className="text-blue-400">I Love to Code.</span> I Live to Learn. <span className="text-blue-400">Let's Build Something Awesome.</span>
+              <span className="text-blue-400 geom-notation">△ Code</span> I Love to Code. I Live to Learn. <span className="text-blue-400 geom-notation">○ Projects</span> Let's Build Something Awesome.
             </p>
 
          

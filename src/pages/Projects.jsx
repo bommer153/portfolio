@@ -223,7 +223,7 @@ const Projects = () => {
     <section id="projects" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20 relative">
       <div className="container mx-auto px-2 sm:px-6 w-full max-w-7xl py-4 sm:py-8">
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-white mb-4 sm:mb-6 tracking-wider">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-white mb-4 sm:mb-6 tracking-wider section-title-geom">
             PROJECTS
           </h2>
           
@@ -232,6 +232,21 @@ const Projects = () => {
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
             A showcase of my recent work and side projects
           </p>
+          
+          {/* Geometric Notation */}
+          <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
+            <span className="geom-symbol">◢</span>
+            <span className="geom-notation"> Projects</span>
+            <span className="mx-2">=</span>
+            <span className="geom-shape">△</span>
+            <span className="geom-notation"> p₁</span>
+            <span className="mx-1">+</span>
+            <span className="geom-shape">○</span>
+            <span className="geom-notation"> p₂</span>
+            <span className="mx-1">+</span>
+            <span className="geom-shape">□</span>
+            <span className="geom-notation"> ...</span>
+          </div>
         </div>
         
       
@@ -334,7 +349,7 @@ const Projects = () => {
                   }}
                 >
                   <div 
-                    className="group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] cursor-pointer rounded-xl"
+                    className="geom-card group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] cursor-pointer"
                     style={{
                       transform: isActive ? 'translateZ(0)' : 'translateZ(-10px)',
                       filter: isActive ? 'none' : 'blur(1px)',
