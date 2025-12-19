@@ -34,21 +34,7 @@ const Contact = () => {
                 Ready to bring your ideas to life? Let's discuss your next project
               </p>
               
-              {/* Geometric Contact Notation */}
-              <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
-                <span className="geom-symbol">◢</span>
-                <span className="geom-notation"> Contact</span>
-                <span className="mx-2">=</span>
-                <span className="geom-shape">△</span>
-                <span className="geom-notation"> Email</span>
-                <span className="mx-1">+</span>
-                <span className="geom-shape">○</span>
-                <span className="geom-notation"> Location</span>
-                <span className="mx-1">+</span>
-                <span className="geom-shape">□</span>
-                <span className="geom-notation"> Phone</span>
-                <span className="geom-symbol">◣</span>
-              </div>
+             
             </div>
 
         <div className="max-w-4xl mx-auto">    

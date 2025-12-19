@@ -248,19 +248,7 @@ const Projects = () => {
           </p>
           
           {/* Geometric Notation */}
-          <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
-            <span className="geom-symbol">◢</span>
-            <span className="geom-notation"> Projects</span>
-            <span className="mx-2">=</span>
-            <span className="geom-shape">△</span>
-            <span className="geom-notation"> p₁</span>
-            <span className="mx-1">+</span>
-            <span className="geom-shape">○</span>
-            <span className="geom-notation"> p₂</span>
-            <span className="mx-1">+</span>
-            <span className="geom-shape">□</span>
-            <span className="geom-notation"> ...</span>
-          </div>
+          
         </div>
         
       

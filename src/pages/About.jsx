@@ -38,18 +38,7 @@ const About = () => {
                 and continuously learning to stay at the forefront of web development.
               </p>
               
-              {/* Geometric Notation */}
-              <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
-                <span className="geom-shape">△</span>
-                <span className="geom-notation"> Developer</span>
-                <span className="mx-2">+</span>
-                <span className="geom-shape">○</span>
-                <span className="geom-notation"> Innovation</span>
-                <span className="mx-2">=</span>
-                <span className="geom-symbol">◢</span>
-                <span className="geom-notation"> Solutions</span>
-                <span className="geom-symbol">◣</span>
-              </div>
+             
             </div>
 
        

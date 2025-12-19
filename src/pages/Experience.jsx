@@ -46,21 +46,7 @@ const Experience = () => {
             My professional experience and career milestones
           </p>
           
-          {/* Geometric Timeline Notation */}
-          <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
-            <span className="geom-symbol">◢</span>
-            <span className="geom-notation"> Experience</span>
-            <span className="mx-2">=</span>
-            <span className="geom-shape">△</span>
-            <span className="geom-notation"> e₁</span>
-            <span className="mx-1">→</span>
-            <span className="geom-shape">○</span>
-            <span className="geom-notation"> e₂</span>
-            <span className="mx-1">→</span>
-            <span className="geom-shape">□</span>
-            <span className="geom-notation"> eₙ</span>
-            <span className="geom-symbol">◣</span>
-          </div>
+        
         </div>
 
         <div className="relative">

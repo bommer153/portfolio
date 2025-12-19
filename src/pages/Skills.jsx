@@ -73,21 +73,7 @@ const Skills = () => {
             A comprehensive toolkit for building modern web applications
           </p>
           
-          {/* Geometric Notation */}
-          <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
-            <span className="geom-symbol">◢</span>
-            <span className="geom-notation"> Skills</span>
-            <span className="mx-2">=</span>
-            <span className="geom-shape">△</span>
-            <span className="geom-notation"> Frontend</span>
-            <span className="mx-1">+</span>
-            <span className="geom-shape">○</span>
-            <span className="geom-notation"> Backend</span>
-            <span className="mx-1">+</span>
-            <span className="geom-shape">□</span>
-            <span className="geom-notation"> Tools</span>
-            <span className="geom-symbol">◣</span>
-          </div>
+         
         </div>
     
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8 justify-items-center">

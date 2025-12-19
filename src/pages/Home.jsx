@@ -86,7 +86,7 @@ const Home = () => {
             </h2>
             
             <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-12 px-2">
-              <span className="text-blue-400 geom-notation">△ Code</span> I Love to Code. I Live to Learn. <span className="text-blue-400 geom-notation">○ Projects</span> Let's Build Something Awesome.
+              <span className="text-blue-400 geom-notation">△ </span> I Love to Code. I Live to Learn. Let's Build Something Awesome.
             </p>
 
          

@@ -7,20 +7,7 @@ const Footer = () => {
         <div className="text-center mb-8">   
           <p className="text-gray-400 mb-6 text-lg">
             Connect with me on social media
-            <span className="mx-2 text-blue-400/60 font-mono text-sm">
-              <span className="geom-symbol">◢</span>
-              <span className="geom-notation"> Social</span>
-              <span className="mx-1">=</span>
-              <span className="geom-shape">△</span>
-              <span className="geom-notation"> GitHub</span>
-              <span className="mx-1">+</span>
-              <span className="geom-shape">○</span>
-              <span className="geom-notation"> LinkedIn</span>
-              <span className="mx-1">+</span>
-              <span className="geom-shape">□</span>
-              <span className="geom-notation"> Facebook</span>
-              <span className="geom-symbol">◣</span>
-            </span>
+           
           </p>
           <div className="flex justify-center gap-6 mb-8">
             <a
