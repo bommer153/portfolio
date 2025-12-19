@@ -49,7 +49,7 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-blue-500/20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center h-14 sm:h-16">
-          {/* Logo */}
+          {/* Logo with Geometric Shape */}
           <button 
             onClick={() => scrollToSection('home')}
             className="group"
@@ -60,12 +60,12 @@ const Navbar = () => {
                   clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
                 }}
               ></div>
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-lg sm:text-xl font-bold text-white shadow-lg group-hover:scale-105 transition-all duration-300"
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-lg sm:text-xl font-bold text-white shadow-lg group-hover:scale-105 transition-all duration-300 geom-transform"
                 style={{
                   clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 100%, 6px 100%)'
                 }}
               >
-                J
+                <span className="geom-symbol">J</span>
               </div>
             </div>
           </button>
@@ -76,7 +76,7 @@ const Navbar = () => {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.id)}
-                className={`px-3 lg:px-6 py-2 lg:py-3 text-xs lg:text-sm font-semibold transition-all duration-300 relative group ${
+                className={`geom-card px-3 lg:px-6 py-2 lg:py-3 text-xs lg:text-sm font-semibold transition-all duration-300 relative group ${
                   activeSection === link.id
                     ? 'text-white bg-blue-500/20'
                     : 'text-gray-300 hover:text-white hover:bg-slate-800/50'

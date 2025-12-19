@@ -24,7 +24,7 @@ const Contact = () => {
         <section id="contact" className="min-h-screen flex items-center justify-center px-6 py-20 relative">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
-              <h2 className="text-6xl md:text-7xl font-thin text-white mb-6 tracking-wider">
+              <h2 className="text-6xl md:text-7xl font-thin text-white mb-6 tracking-wider section-title-geom">
                 CONTACT
               </h2>
               
@@ -33,6 +33,22 @@ const Contact = () => {
               <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Ready to bring your ideas to life? Let's discuss your next project
               </p>
+              
+              {/* Geometric Contact Notation */}
+              <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
+                <span className="geom-symbol">◢</span>
+                <span className="geom-notation"> Contact</span>
+                <span className="mx-2">=</span>
+                <span className="geom-shape">△</span>
+                <span className="geom-notation"> Email</span>
+                <span className="mx-1">+</span>
+                <span className="geom-shape">○</span>
+                <span className="geom-notation"> Location</span>
+                <span className="mx-1">+</span>
+                <span className="geom-shape">□</span>
+                <span className="geom-notation"> Phone</span>
+                <span className="geom-symbol">◣</span>
+              </div>
             </div>
 
         <div className="max-w-4xl mx-auto">    
@@ -49,7 +65,7 @@ const Contact = () => {
               {contactInfo.map((contact, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-6 p-20 bg-slate-800/30 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 rounded-xl"
+                  className="geom-card flex items-center gap-6 p-20 bg-slate-800/30 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 geom-transform"
                   style={{
                     transform: `translateY(${index * 5}px)`
                   }}

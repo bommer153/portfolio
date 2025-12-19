@@ -19,14 +19,40 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/15 to-blue-500/10 animate-pulse"></div>
         
   
+        {/* Geometric Grid Pattern */}
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-25"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+              repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(59, 130, 246, 0.15) 40px, rgba(59, 130, 246, 0.15) 41px),
+              repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(59, 130, 246, 0.15) 40px, rgba(59, 130, 246, 0.15) 41px)
+            `
+          }}
+        ></div>
+        
+        {/* Geometric Shapes Pattern */}
+        <div 
+          className="absolute inset-0 opacity-15"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.2) 3px, transparent 3px),
+              radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.2) 3px, transparent 3px),
+              radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 4px, transparent 4px)
             `,
-            backgroundSize: '50px 50px'
+            backgroundSize: '100px 100px, 120px 120px, 150px 150px',
+            backgroundPosition: '0 0, 50px 50px, 25px 25px'
+          }}
+        ></div>
+        
+        {/* Geometric Polygons */}
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `
+              repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(59, 130, 246, 0.1) 10deg, transparent 20deg),
+              repeating-conic-gradient(from 45deg at 50% 50%, transparent 0deg, rgba(147, 51, 234, 0.1) 10deg, transparent 20deg)
+            `,
+            backgroundSize: '200px 200px'
           }}
         ></div>
         
@@ -48,13 +74,20 @@ function App() {
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-violet-500/8 to-transparent rounded-full blur-2xl"></div>
         
       
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-blue-400 to-transparent animate-pulse"></div>
-          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-purple-400 to-transparent animate-pulse delay-1000"></div>
-          <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-blue-400 to-transparent animate-pulse delay-500"></div>
-          <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-cyan-400 to-transparent animate-pulse delay-1500"></div>
-          <div className="absolute top-0 left-1/6 w-px h-full bg-gradient-to-b from-transparent via-indigo-400 to-transparent animate-pulse delay-2000"></div>
-          <div className="absolute top-0 right-1/6 w-px h-full bg-gradient-to-b from-transparent via-violet-400 to-transparent animate-pulse delay-2500"></div>
+        {/* Geometric Shapes - Triangles and Polygons */}
+        <div className="absolute inset-0 opacity-20">
+          {/* Triangle shapes */}
+          <div className="absolute top-1/4 left-1/4 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-b-[35px] border-b-blue-400/30 animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[35px] border-t-purple-400/30 animate-pulse delay-1000"></div>
+          {/* Hexagon shapes */}
+          <div className="absolute top-1/2 left-1/3 w-16 h-16 border-2 border-cyan-400/30 transform rotate-45 animate-pulse delay-500" style={{clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'}}></div>
+          <div className="absolute top-1/3 right-1/3 w-12 h-12 border-2 border-violet-400/30 transform -rotate-45 animate-pulse delay-700" style={{clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'}}></div>
+        </div>
+        
+        {/* Geometric Patterns */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-24 h-24 border-2 border-blue-400/30 transform rotate-45 geom-rotate"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-20 h-20 border-2 border-purple-400/30 transform -rotate-45 geom-rotate" style={{animationDirection: 'reverse'}}></div>
         </div>
         
   

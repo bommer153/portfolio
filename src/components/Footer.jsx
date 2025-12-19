@@ -2,10 +2,26 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-slate-900/80 backdrop-blur-md border-t border-blue-500/20 py-12">
+    <footer className="geom-card bg-slate-900/80 backdrop-blur-md border-t border-blue-500/20 py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-8">   
-          <p className="text-gray-400 mb-6 text-lg">Connect with me on social media</p>
+          <p className="text-gray-400 mb-6 text-lg">
+            Connect with me on social media
+            <span className="mx-2 text-blue-400/60 font-mono text-sm">
+              <span className="geom-symbol">◢</span>
+              <span className="geom-notation"> Social</span>
+              <span className="mx-1">=</span>
+              <span className="geom-shape">△</span>
+              <span className="geom-notation"> GitHub</span>
+              <span className="mx-1">+</span>
+              <span className="geom-shape">○</span>
+              <span className="geom-notation"> LinkedIn</span>
+              <span className="mx-1">+</span>
+              <span className="geom-shape">□</span>
+              <span className="geom-notation"> Facebook</span>
+              <span className="geom-symbol">◣</span>
+            </span>
+          </p>
           <div className="flex justify-center gap-6 mb-8">
             <a
               href="https://github.com/bommer153"
@@ -46,6 +62,18 @@ const Footer = () => {
         <div className="border-t border-slate-700/50 pt-6 text-center">
           <p className="text-gray-400 text-sm">
             &copy; {currentYear} Jefferson's Portfolio. All rights reserved.
+          </p>
+          <p className="text-gray-500 text-xs mt-2 font-mono">
+            <span className="geom-notation">Portfolio</span>
+            <span className="mx-1">=</span>
+            <span className="geom-shape">△</span>
+            <span className="geom-notation"> Web Development</span>
+            <span className="mx-1">+</span>
+            <span className="geom-shape">○</span>
+            <span className="geom-notation"> Geometry</span>
+            <span className="mx-1">+</span>
+            <span className="geom-shape">□</span>
+            <span className="geom-notation"> Design</span>
           </p>
         </div>
       </div>

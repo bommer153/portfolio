@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=KaTeX_Math:wght@400;700&display=swap');
 @import "tailwindcss";
 
 * {
@@ -22,18 +22,206 @@ body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  position: relative;
+}
+
+/* Geometry Theme - Geometric Grid Pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(59, 130, 246, 0.08) 40px, rgba(59, 130, 246, 0.08) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(59, 130, 246, 0.08) 40px, rgba(59, 130, 246, 0.08) 41px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* Geometric Shapes Pattern */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 3px, transparent 3px);
+  background-size: 100px 100px, 120px 120px, 150px 150px;
+  background-position: 0 0, 50px 50px, 25px 25px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Geometric Notation Styles */
+.geom-notation {
+  font-family: 'JetBrains Mono', monospace;
+  font-style: italic;
+  color: #60a5fa;
+}
+
+.geom-shape {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2em;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.geom-symbol {
+  font-family: 'JetBrains Mono', monospace;
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+/* Geometric Grid Container */
+.geom-container {
+  display: grid;
+  gap: 2px;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 4px;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.geom-cell {
+  background: rgba(15, 23, 42, 0.8);
+  padding: 0.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
+}
+
+.geom-cell:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: scale(1.05) rotate(1deg);
+}
+
+/* Geometric Lines */
+.geom-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.3), transparent);
+  pointer-events: none;
+  clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 100%, 4px 100%);
+}
+
+/* Geometric Shape Rotation Animation */
+@keyframes geomRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.geom-rotate {
+  animation: geomRotate 20s linear infinite;
+}
+
+/* Geometric Transformation Effect */
+@keyframes geomTransform {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  25% {
+    transform: scale(1.02) rotate(1deg);
+    clip-path: polygon(2px 0, calc(100% - 2px) 0, 100% 100%, 0 100%);
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 2px) 100%, 2px 100%);
+  }
+  75% {
+    transform: scale(1.02) rotate(-1deg);
+    clip-path: polygon(0 0, calc(100% - 2px) 0, 100% calc(100% - 2px), 0 100%);
+  }
+}
+
+.geom-transform {
+  animation: geomTransform 6s ease-in-out infinite;
+}
+
+/* Geometric Card Style */
+.geom-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.geom-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 3px solid rgba(59, 130, 246, 0.6);
+  border-left: 3px solid rgba(59, 130, 246, 0.6);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.geom-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom: 3px solid rgba(147, 51, 234, 0.6);
+  border-right: 3px solid rgba(147, 51, 234, 0.6);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* Section Title with Geometric Notation */
+.section-title-geom {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title-geom::before {
+  content: '◢';
+  position: absolute;
+  left: -1.5em;
+  color: rgba(59, 130, 246, 0.6);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.section-title-geom::after {
+  content: '◣';
+  position: absolute;
+  right: -1.5em;
+  color: rgba(59, 130, 246, 0.6);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
 }
+
 /* Clean element spacing - exclude hero section */
-div:not(#home):not(#home *):not(.project-card):not(.skill-card):not(.nav-link) {
+div:not(#home):not(#home *):not(.project-card):not(.skill-card):not(.nav-link):not(.geom-cell):not(.geom-card) {
   padding: 0.25rem;
 }
 
 @media (min-width: 640px) {
-  div:not(#home):not(#home *):not(.project-card):not(.skill-card):not(.nav-link) {
+  div:not(#home):not(#home *):not(.project-card):not(.skill-card):not(.nav-link):not(.geom-cell):not(.geom-card) {
     padding: 0.5rem;
   }
 }
@@ -78,3 +266,4 @@ button {
     padding: 0.25rem;
   }
 }
+

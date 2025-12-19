@@ -21,7 +21,7 @@ const About = () => {
         <section id="about" className="min-h-screen flex items-center justify-center px-2 sm:px-4 md:px-6 py-12 sm:py-20 relative overflow-x-hidden w-full">
           <div className="max-w-6xl mx-auto w-full max-w-full">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-thin text-white mb-4 sm:mb-6 tracking-wider break-words">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-thin text-white mb-4 sm:mb-6 tracking-wider break-words section-title-geom">
                 ABOUT
               </h2>
               
@@ -37,6 +37,19 @@ const About = () => {
                 When I'm not coding, you'll find me solving algorithmic challenges, exploring new technologies, 
                 and continuously learning to stay at the forefront of web development.
               </p>
+              
+              {/* Geometric Notation */}
+              <div className="mt-4 text-blue-400/60 font-mono text-xs sm:text-sm">
+                <span className="geom-shape">△</span>
+                <span className="geom-notation"> Developer</span>
+                <span className="mx-2">+</span>
+                <span className="geom-shape">○</span>
+                <span className="geom-notation"> Innovation</span>
+                <span className="mx-2">=</span>
+                <span className="geom-symbol">◢</span>
+                <span className="geom-notation"> Solutions</span>
+                <span className="geom-symbol">◣</span>
+              </div>
             </div>
 
        
@@ -45,7 +58,7 @@ const About = () => {
                 {keyInterests.map((interest, index) => (
                   <div
                     key={index}
-                    className="bg-slate-800/30 backdrop-blur-sm p-3 sm:p-4 md:p-6 lg:p-8 hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 group border border-slate-700/30 rounded-xl text-center w-full"
+                    className="geom-card bg-slate-800/30 backdrop-blur-sm p-3 sm:p-4 md:p-6 lg:p-8 hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 group border border-slate-700/30 text-center w-full geom-transform"
                   >
                     <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4 lg:mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300 rounded-lg">
                       <img
