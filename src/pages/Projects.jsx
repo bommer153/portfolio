@@ -6,6 +6,7 @@ const Projects = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [touchStart, setTouchStart] = useState(null)
   const [touchEnd, setTouchEnd] = useState(null)
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024)
   const carouselRef = useRef(null)
   const intervalRef = useRef(null)
 
@@ -101,6 +102,15 @@ const Projects = () => {
 
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
     if (isAutoPlaying) {
       intervalRef.current = setInterval(() => {
         setCurrentProject((prev) => (prev + 1) % projects.length)
@@ -193,9 +203,13 @@ const Projects = () => {
   const [isShuffling, setIsShuffling] = useState(false)
   
   const triggerShuffle = useCallback(() => {
-    setIsShuffling(true)
-    setTimeout(() => setIsShuffling(false), 300)
-  }, [])
+    // Only trigger shuffle in mobile mode (width < 640px)
+    const isMobile = windowWidth < 640
+    if (isMobile) {
+      setIsShuffling(true)
+      setTimeout(() => setIsShuffling(false), 300)
+    }
+  }, [windowWidth])
 
   const goToProject = useCallback((index) => {
     if (index !== currentProject) {
@@ -236,32 +250,106 @@ const Projects = () => {
         
       
         <div className="relative max-w-9xl mx-auto">
-          <div 
-            ref={carouselRef}
-            className={`relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] flex items-center justify-center transition-all duration-300 ${
-              isShuffling ? 'scale-105' : 'scale-100'
-            }`}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
-          >
-            {projects.map((project, index) => {
-              const isActive = index === currentProject
-              const isPrev = index === (currentProject - 1 + projects.length) % projects.length
-              const isNext = index === (currentProject + 1) % projects.length
-              const isSecondNext = index === (currentProject + 2) % projects.length
-              const isSecondPrev = index === (currentProject - 2 + projects.length) % projects.length
-              const isHidden = !isActive && !isPrev && !isNext && !isSecondNext && !isSecondPrev
+          {windowWidth >= 1024 ? (
+            // Desktop: Grid layout showing all projects
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {projects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className="group bg-slate-800 overflow-hidden border border-slate-600 hover:border-blue-500 transition-all duration-700 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer rounded-xl"
+                  onClick={() => handleProjectClick(project)}
+                >
+                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                    <div className="w-full h-full cursor-pointer touch-manipulation">
+                      {isLoading ? (
+                        <div className="w-full h-full bg-slate-700 animate-pulse flex items-center justify-center">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-4 border-emerald-400 border-t-transparent rounded-full animate-spin"></div>
+                        </div>
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                          onError={(e) => {
+                            e.target.style.display = 'none'
+                            e.target.nextSibling.style.display = 'flex'
+                          }}
+                        />
+                      )}
+                      <div className="w-full h-full bg-slate-700 items-center justify-center hidden">
+                        <div className="text-center text-gray-400">
+                          <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <p className="text-xs sm:text-sm">Image not available</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none"></div>
+                    <div className="absolute top-2 sm:top-4 right-2 sm:right-4 pointer-events-none">
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-400 rounded-full shadow-lg"></div>
+                    </div>
+                    <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
+                      <div className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 bg-emerald-600 text-white rounded-xl font-semibold text-xs sm:text-sm shadow-lg">
+                        View Project
+                        <svg className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-3 sm:p-4 md:p-6">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3 group-hover:text-emerald-400 transition-all duration-500 ease-out group-hover:translate-x-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm line-clamp-3 sm:line-clamp-4 group-hover:text-gray-200 transition-all duration-500 ease-out group-hover:translate-x-1">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5">
+                      {project.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-slate-700 text-emerald-400 rounded-full text-xs font-medium border border-slate-600 transition-all duration-300 ease-out group-hover:bg-emerald-500/20 group-hover:border-emerald-400 group-hover:scale-105"
+                          style={{ transitionDelay: `${techIndex * 50}ms` }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            // Mobile/Tablet: Carousel with shuffle effect
+            <div 
+              ref={carouselRef}
+              className={`relative h-[500px] sm:h-[600px] md:h-[700px] flex items-center justify-center transition-all duration-300 ${
+                isShuffling ? 'scale-105' : 'scale-100'
+              }`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
+            >
+              {projects.map((project, index) => {
+                const isActive = index === currentProject
+                const isPrev = index === (currentProject - 1 + projects.length) % projects.length
+                const isNext = index === (currentProject + 1) % projects.length
+                const isSecondNext = index === (currentProject + 2) % projects.length
+                const isSecondPrev = index === (currentProject - 2 + projects.length) % projects.length
+                
+                const isHidden = !isActive && !isPrev && !isNext && !isSecondNext && !isSecondPrev
 
-              if (isHidden) return null
+                if (isHidden) return null
 
         
               const getShufflePosition = () => {
-                const isMobile = window.innerWidth < 640
-                const isTablet = window.innerWidth < 1024
+                const isMobile = windowWidth < 640
+                const isTablet = windowWidth < 1024
                 
+                // Mobile/Tablet mode: shuffled card effect
                 if (isActive) {
                   return {
                     z: 50,
@@ -274,37 +362,37 @@ const Projects = () => {
                 } else if (isPrev) {
                   return {
                     z: 40,
-                    scale: isMobile ? 0.7 : isTablet ? 0.8 : 0.85,
-                    x: isMobile ? -30 : isTablet ? -45 : -60,
-                    y: isMobile ? -4 : isTablet ? -6 : -8,
-                    rotate: isMobile ? -8 : isTablet ? -12 : -15,
+                    scale: isMobile ? 0.7 : 0.8,
+                    x: isMobile ? -30 : -45,
+                    y: isMobile ? -4 : -6,
+                    rotate: isMobile ? -8 : -12,
                     opacity: 1
                   }
                 } else if (isNext) {
                   return {
                     z: 40,
-                    scale: isMobile ? 0.7 : isTablet ? 0.8 : 0.85,
-                    x: isMobile ? 30 : isTablet ? 45 : 60,
-                    y: isMobile ? -4 : isTablet ? -6 : -8,
-                    rotate: isMobile ? 8 : isTablet ? 12 : 15,
+                    scale: isMobile ? 0.7 : 0.8,
+                    x: isMobile ? 30 : 45,
+                    y: isMobile ? -4 : -6,
+                    rotate: isMobile ? 8 : 12,
                     opacity: 1
                   }
                 } else if (isSecondNext) {
                   return {
                     z: 30,
-                    scale: isMobile ? 0.5 : isTablet ? 0.6 : 0.7,
-                    x: isMobile ? 45 : isTablet ? 70 : 90,
-                    y: isMobile ? -6 : isTablet ? -9 : -12,
-                    rotate: isMobile ? 12 : isTablet ? 20 : 25,
+                    scale: isMobile ? 0.5 : 0.6,
+                    x: isMobile ? 45 : 70,
+                    y: isMobile ? -6 : -9,
+                    rotate: isMobile ? 12 : 20,
                     opacity: 1
                   }
                 } else if (isSecondPrev) {
                   return {
                     z: 30,
-                    scale: isMobile ? 0.5 : isTablet ? 0.6 : 0.7,
-                    x: isMobile ? -45 : isTablet ? -70 : -90,
-                    y: isMobile ? -6 : isTablet ? -9 : -12,
-                    rotate: isMobile ? -12 : isTablet ? -20 : -25,
+                    scale: isMobile ? 0.5 : 0.6,
+                    x: isMobile ? -45 : -70,
+                    y: isMobile ? -6 : -9,
+                    rotate: isMobile ? -12 : -20,
                     opacity: 1
                   }
                 }
@@ -409,10 +497,12 @@ const Projects = () => {
                 </div>
               )
             })}
-          </div>
+            </div>
+          )}
 
    
-          <div className="flex items-center justify-center mt-8 sm:mt-12 space-x-4 sm:space-x-6 md:space-x-8">
+          {windowWidth < 1024 && (
+            <div className="flex items-center justify-center mt-8 sm:mt-12 space-x-4 sm:space-x-6 md:space-x-8">
            
             <button
               onClick={swipePrev}
@@ -451,7 +541,7 @@ const Projects = () => {
               </svg>
             </button>
           </div>
-
+          )}
 
        
         </div>
