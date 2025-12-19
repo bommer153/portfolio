@@ -62,19 +62,7 @@ const Footer = () => {
         <div className="border-t border-slate-700/50 pt-6 text-center">
           <p className="text-gray-400 text-sm">
             &copy; {currentYear} Jefferson's Portfolio. All rights reserved.
-          </p>
-          <p className="text-gray-500 text-xs mt-2 font-mono">
-            <span className="geom-notation">Portfolio</span>
-            <span className="mx-1">=</span>
-            <span className="geom-shape">△</span>
-            <span className="geom-notation"> Web Development</span>
-            <span className="mx-1">+</span>
-            <span className="geom-shape">○</span>
-            <span className="geom-notation"> Geometry</span>
-            <span className="mx-1">+</span>
-            <span className="geom-shape">□</span>
-            <span className="geom-notation"> Design</span>
-          </p>
+          </p>        
         </div>
       </div>
     </footer>
