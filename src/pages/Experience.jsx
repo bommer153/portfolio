@@ -1,9 +1,22 @@
 const Experience = () => {
   const experiences = [
+     {
+      title: 'Frontend Developer',
+      company: 'Mary Grace Food',
+      period: 'Jan 2026 - Present',
+      responsibilities: [
+        'Developed and maintained frontend features using React.js and other modern web technologies.',
+        'Collaborated with backend developers to integrate APIs and ensure seamless data flow.',
+        'Optimized web applications for maximum speed and scalability.',
+        'Implemented responsive design principles to ensure the application is mobile-friendly and accessible across various devices.',
+        'Work with these tools and technologies: SWR, HeroUI, Tailwind CSS, Vite, GitHub, Capacitor.',
+        'Provide Software support and maintenance for existing applications, ensuring they remain up-to-date and functional.'
+      ]
+    },
     {
       title: 'Computer Operator III',
       company: 'Department of Science and Technology',
-      period: '2025 - Present',
+      period: 'Feb 2025 - Dec 31, Present',
       responsibilities: [
         'ICT equipment troubleshooting and maintenance.',
         'Conduct of preventive maintenance.',
