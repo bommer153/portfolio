@@ -1,4 +1,11 @@
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
 const Experience = () => {
+  const sectionRef = useRef(null)
+
   const experiences = [
      {
       title: 'Frontend Developer',
@@ -45,247 +52,100 @@ const Experience = () => {
     }
   ]
 
+  const training = {
+    title: 'Full Stack Development Training Course',
+    institution: 'Uplift Code Camp',
+    logo: './image/uplift.png',
+    period: 'May 2025 — October 2025',
+    highlights: [
+      'Learned MERN stack: MongoDB, Express.js, React.js, and Node.js',
+      'Learned Git and GitHub for collaborative development workflows',
+      'Built projects using modern web technologies',
+      'Developed responsive web applications with React.js',
+      'Built RESTful APIs using Express.js and Node.js',
+      'Implemented MongoDB database design and management',
+      'Practiced version control and team collaboration with Git',
+    ],
+  }
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.ex-header', { opacity: 0, y: 30, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: '.ex-header', start: 'top bottom', once: true } })
+    }, sectionRef)
+
+    const items = sectionRef.current?.querySelectorAll('.ex-item, .ex-training')
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 100)
+          obs.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.1 })
+    items?.forEach(c => obs.observe(c))
+
+    return () => { ctx.revert(); obs.disconnect() }
+  }, [])
+
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center px-6 py-20 relative">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl font-thin text-white mb-6 tracking-wider section-title-geom">
-            EXPERIENCE
+    <section ref={sectionRef} id="experience" style={{ minHeight: '100vh', padding: '80px 24px' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', width: '100%' }}>
+
+        <div className="ex-header" style={{ marginBottom: '60px' }}>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#f72585', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
+            04 / Experience
+          </span>
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 200, color: '#ffffff', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '8px', marginBottom: '16px' }}>
+            Career
           </h2>
-
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8"></div>
-
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            My professional experience and career milestones
-          </p>
-          
-        
+          <div style={{ width: '40px', height: '1px', background: '#f72585' }} />
         </div>
 
-        <div className="relative">
-       
-          <div className="hidden sm:block absolute left-8 top-0 bottom-0">
-            {/* Enhanced Milestone Timeline */}
-            <div className="relative w-1 h-full">
-              {/* Main timeline line with gradient */}
-              <div className="absolute inset-0 bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 rounded-full shadow-lg shadow-blue-500/30"></div>
-              
-              {/* Animated pulse effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 rounded-full animate-pulse opacity-60"></div>
-              
-              {/* Timeline dots pattern */}
-              <div className="absolute inset-0" 
-                   style={{
-                     backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 2px, transparent 2px)',
-                     backgroundSize: '4px 20px',
-                     backgroundRepeat: 'repeat-y',
-                     backgroundPosition: 'center'
-                   }}>
+        <div className="ex-timeline" style={{ position: 'relative', paddingLeft: '28px' }}>
+          <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '1px', background: 'linear-gradient(to bottom, #f72585, rgba(247,37,133,0.08))' }} />
+          {experiences.map((exp, i) => (
+            <div key={i} className="ex-item reveal" style={{ position: 'relative', marginBottom: '48px' }}>
+              <div style={{ position: 'absolute', left: '-32px', top: '6px', width: '7px', height: '7px', borderRadius: '50%', background: '#f72585', boxShadow: '0 0 8px rgba(247,37,133,0.5)' }} />
+              <div style={{ marginBottom: '6px' }}>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#555', letterSpacing: '0.15em', textTransform: 'uppercase' }}>{exp.period}</span>
+              </div>
+              <h3 style={{ fontSize: '16px', fontWeight: 500, color: '#f0f0f0', marginBottom: '4px' }}>{exp.title}</h3>
+              <p style={{ fontSize: '13px', color: '#f72585', marginBottom: '14px' }}>{exp.company}</p>
+              <ul style={{ listStyle: 'none', padding: 0 }}>
+                {exp.responsibilities.map((r, ri) => (
+                  <li key={ri} style={{ display: 'flex', gap: '10px', marginBottom: '7px', alignItems: 'flex-start' }}>
+                    <span style={{ color: '#f72585', marginTop: '7px', fontSize: '5px', flexShrink: 0 }}>■</span>
+                    <span style={{ fontSize: '13px', color: '#666', lineHeight: 1.7 }}>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="ex-training reveal" style={{ marginTop: '60px', padding: '28px', background: '#0f0f0f', borderTop: '1px solid #f72585' }}>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#f72585', letterSpacing: '0.2em', textTransform: 'uppercase', display: 'block', marginBottom: '16px' }}>
+            Professional Development
+          </span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
+            <div>
+              <h3 style={{ fontSize: '15px', fontWeight: 500, color: '#f0f0f0', marginBottom: '8px' }}>{training.title}</h3>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <img src={training.logo} alt="Uplift" style={{ width: '24px', height: '24px', objectFit: 'contain' }} onError={e => e.currentTarget.style.display='none'} />
+                <span style={{ fontSize: '13px', color: '#f72585' }}>{training.institution}</span>
               </div>
             </div>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#555', letterSpacing: '0.05em' }}>{training.period}</span>
           </div>
-
-          <div className="space-y-8">
-            {experiences.map((experience, index) => (
-              <div key={index} className="relative flex items-start gap-6">
-          
-                {/* Milestone number positioned on timeline */}
-                <div className="hidden sm:block relative z-10 flex-shrink-0">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white/30">
-                    <span className="text-white font-bold text-sm">{experiences.length - index}</span>
-                  </div>
-                </div>
-
-          
-                <div className="geom-card flex-1 bg-slate-800/30 backdrop-blur-sm p-20 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="text-xl font-semibold text-white mb-1">
-                        {experience.title}
-                      </h3>
-                      <p className="text-blue-400 font-semibold">
-                        {experience.company}
-                      </p>
-                    </div>
-                    <span className="text-blue-400 font-semibold text-sm bg-blue-500/10 px-3 py-1 rounded-full self-start">
-                      {experience.period}
-                    </span>
-                  </div>
-
-                  <div className="space-y-3">
-                    {experience.responsibilities.map((responsibility, respIndex) => (
-                      <div
-                        key={respIndex}
-                        className="geom-cell group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 border-b-2 border-slate-500/70 hover:border-blue-400/80"
-                        style={{
-                          animationDelay: `${respIndex * 100}ms`,
-                          animation: 'fadeInUp 0.6s ease-out forwards',
-                          clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
-                          borderBottomColor: 'rgba(156, 163, 175, 0.6)'
-                        }}
-                      >
-                        <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0 mt-2"></div>
-                        <p className="text-white leading-relaxed text-sm">
-                          {responsibility}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            {training.highlights.map((h, hi) => (
+              <li key={hi} style={{ display: 'flex', gap: '10px', marginBottom: '6px', alignItems: 'flex-start' }}>
+                <span style={{ color: '#f72585', marginTop: '7px', fontSize: '5px', flexShrink: 0 }}>■</span>
+                <span style={{ fontSize: '13px', color: '#666', lineHeight: 1.7 }}>{h}</span>
+              </li>
             ))}
-          </div>
-        </div>
-
-      
-        <div className="mt-16">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-semibold text-white mb-2">Professional Development</h3>
-            <p className="text-gray-400">Continuous learning and skill enhancement</p>
-          </div>
-
-          <div className="geom-card bg-slate-800/30 backdrop-blur-sm p-20 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/30 hover:border-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/10">
-            <div className="flex items-start gap-6">     
-              <div className="flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white mb-2">
-                      Full Stack Development Training Course
-                    </h3>
-                    <div className="flex items-center gap-4">
-                      <div className="relative group">
-                        <img 
-                          src="./image/uplift.png" 
-                          alt="Uplift Code Camp Logo" 
-                          className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 drop-shadow-lg"
-                        />
-                        <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                      <p className="text-emerald-400 font-semibold text-lg">
-                        Uplift Code Camp
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex flex-col sm:items-end gap-2">
-                    <span className="text-emerald-400 font-semibold text-sm bg-emerald-500/10 px-3 py-1 rounded-full">
-                      May 2025 - October 2025
-                    </span>
-                    <span className="text-gray-400 text-sm">
-                      Professional Development
-                    </span>
-                  </div>
-                </div>
-
-                <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                  Intensive 6-month Full stack development training course
-                </p>
-
-                <div className="space-y-3">
-                  <h4 className="text-white font-semibold text-lg mb-3 text-left">Key Highlights:</h4>
-                  <div className="space-y-3">
-                    <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
-                      style={{
-                        animationDelay: '0ms',
-                        animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
-                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-white text-sm leading-relaxed">
-                        Learned MERN stack: MongoDB, Express.js, React.js, and Node.js
-                      </p>
-                    </div>
-                    <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
-                      style={{
-                        animationDelay: '100ms',
-                        animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)'
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-white text-sm leading-relaxed">
-                        Learned Git and GitHub for collaborative development workflows
-                      </p>
-                    </div>
-                    <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
-                      style={{
-                        animationDelay: '200ms',
-                        animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
-                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-white text-sm leading-relaxed">
-                        Built projects using modern web technologies
-                      </p>
-                    </div>
-
-                    <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
-                      style={{
-                        animationDelay: '300ms',
-                        animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
-                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-white text-sm leading-relaxed">
-                        Developed responsive web applications with React.js frontend
-                      </p>
-                    </div>
-                    <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
-                      style={{
-                        animationDelay: '400ms',
-                        animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
-                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-white text-sm leading-relaxed">
-                        Built RESTful APIs using Express.js and Node.js backend
-                      </p>
-                    </div>
-                    <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
-                      style={{
-                        animationDelay: '500ms',
-                        animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
-                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-white text-sm leading-relaxed">
-                        Implemented MongoDB database design and management
-                      </p>
-                    </div>
-                    <div
-                      className="group flex items-center gap-4 p-4 bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 border-b-2 border-slate-500/70 hover:border-emerald-400/80"
-                      style={{
-                        animationDelay: '600ms',
-                        animation: 'fadeInUp 0.6s ease-out forwards',
-                        clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0px 100%)',
-                        borderBottomColor: 'rgba(156, 163, 175, 0.6)'
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0"></div>
-                      <p className="text-white text-sm leading-relaxed">
-                        Practiced version control and team collaboration with Git
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </ul>
         </div>
       </div>
     </section>

@@ -1,269 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=KaTeX_Math:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
+/* ─── Stellar CLI Design Tokens ───────────────────────────── */
+@theme {
+  --color-void:     #040407;
+  --color-surface:  #0E0C13;
+  --color-dust:     #2B213A;
+  --color-dust2:    #1A1528;
+  --color-accent:   #FF007F;
+  --color-nebula:   #E024A2;
+  --color-star:     #B5AEC4;
+
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100vw;
-}
+/* ─── Reset & Base ─────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  color: #e5e7eb;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
-  position: relative;
-}
-
-/* Geometry Theme - Geometric Grid Pattern */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(59, 130, 246, 0.08) 40px, rgba(59, 130, 246, 0.08) 41px),
-    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(59, 130, 246, 0.08) 40px, rgba(59, 130, 246, 0.08) 41px);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.6;
-}
-
-/* Geometric Shapes Pattern */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 2px, transparent 2px),
-    radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.1) 2px, transparent 2px),
-    radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 3px, transparent 3px);
-  background-size: 100px 100px, 120px 120px, 150px 150px;
-  background-position: 0 0, 50px 50px, 25px 25px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-}
-
-/* Geometric Notation Styles */
-.geom-notation {
-  font-family: 'JetBrains Mono', monospace;
-  font-style: italic;
-  color: #60a5fa;
-}
-
-.geom-shape {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.2em;
-  color: #3b82f6;
-  font-weight: bold;
-}
-
-.geom-symbol {
-  font-family: 'JetBrains Mono', monospace;
-  color: #a78bfa;
-  font-weight: 600;
-}
-
-/* Geometric Grid Container */
-.geom-container {
-  display: grid;
-  gap: 2px;
-  background: rgba(59, 130, 246, 0.1);
-  padding: 4px;
-  border: 2px solid rgba(59, 130, 246, 0.3);
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-}
-
-.geom-cell {
-  background: rgba(15, 23, 42, 0.8);
-  padding: 0.5rem;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  transition: all 0.3s ease;
-  clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
-}
-
-.geom-cell:hover {
-  background: rgba(59, 130, 246, 0.2);
-  border-color: rgba(59, 130, 246, 0.5);
-  transform: scale(1.05) rotate(1deg);
-}
-
-/* Geometric Lines */
-.geom-line {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.3), transparent);
-  pointer-events: none;
-  clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 100%, 4px 100%);
-}
-
-/* Geometric Shape Rotation Animation */
-@keyframes geomRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.geom-rotate {
-  animation: geomRotate 20s linear infinite;
-}
-
-/* Geometric Transformation Effect */
-@keyframes geomTransform {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-  25% {
-    transform: scale(1.02) rotate(1deg);
-    clip-path: polygon(2px 0, calc(100% - 2px) 0, 100% 100%, 0 100%);
-  }
-  50% {
-    transform: scale(1) rotate(0deg);
-    clip-path: polygon(0 0, 100% 0, calc(100% - 2px) 100%, 2px 100%);
-  }
-  75% {
-    transform: scale(1.02) rotate(-1deg);
-    clip-path: polygon(0 0, calc(100% - 2px) 0, 100% calc(100% - 2px), 0 100%);
-  }
-}
-
-.geom-transform {
-  animation: geomTransform 6s ease-in-out infinite;
-}
-
-/* Geometric Card Style */
-.geom-card {
-  background: rgba(15, 23, 42, 0.7);
-  border: 2px solid rgba(59, 130, 246, 0.3);
-  position: relative;
+  font-family: var(--font-sans);
+  background: #040407;
+  color: #B5AEC4;
+  -webkit-font-smoothing: antialiased;
+  /* Multi-view: block all body-level scroll */
   overflow: hidden;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  height: 100vh;
 }
 
-.geom-card::before {
-  content: '';
+/* ─── Stellar Background ────────────────────────────────────── */
+.stellar-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  /* Layered: nebula glows → bright stars → medium stars → dim grid */
+  background-image:
+    radial-gradient(ellipse 55% 45% at 82% 8%,  rgba(255, 0, 127, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 35% at 14% 88%, rgba(224, 36, 162, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 30% 20% at 50% 50%, rgba(255, 0, 127, 0.03) 0%, transparent 50%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.80) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.50) 1px, transparent 1px),
+    radial-gradient(circle, rgba(181, 174, 196, 0.18) 1px, transparent 1px);
+
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    157px 113px,
+    97px 139px,
+    29px 29px;
+
+  background-position:
+    0 0, 0 0, 0 0,
+    71px  43px,
+    23px  89px,
+    0 0;
+}
+
+/* ─── Animations ────────────────────────────────────────────── */
+@keyframes blink       { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes accentPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+@keyframes fadeUp      { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* Horizontal scan sweep used during view transitions */
+@keyframes scanSweep {
+  0%   { transform: translateX(-100%); opacity: 0.6; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+.cursor-blink  { animation: blink 1s step-end infinite; }
+.accent-pulse  { animation: accentPulse 2.4s ease-in-out infinite; }
+
+/* View frame: the scrollable container for each view */
+.view-frame {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-top: 3px solid rgba(59, 130, 246, 0.6);
-  border-left: 3px solid rgba(59, 130, 246, 0.6);
-  clip-path: polygon(0 0, 100% 0, 0 100%);
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #2B213A #040407;
 }
 
-.geom-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  border-bottom: 3px solid rgba(147, 51, 234, 0.6);
-  border-right: 3px solid rgba(147, 51, 234, 0.6);
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+/* Inside a scrollable view-frame, show reveal elements immediately —
+   IntersectionObserver won't fire against the browser viewport here */
+.view-frame .reveal {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
-/* Section Title with Geometric Notation */
-.section-title-geom {
-  position: relative;
-  display: inline-block;
+/* Responsive bottom margin for the main content area:
+   mobile = HUD(36) + mobile-nav(52) + cli-input(44) = 96px
+   desktop = HUD(36) + cli-input(44) = 44px bottom margin already set inline */
+.app-main {
+  margin-bottom: 96px; /* mobile default */
 }
 
-.section-title-geom::before {
-  content: '◢';
-  position: absolute;
-  left: -1.5em;
-  color: rgba(59, 130, 246, 0.6);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-.section-title-geom::after {
-  content: '◣';
-  position: absolute;
-  right: -1.5em;
-  color: rgba(59, 130, 246, 0.6);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Clean element spacing - exclude hero section */
-div:not(#home):not(#home *):not(.project-card):not(.skill-card):not(.nav-link):not(.geom-cell):not(.geom-card) {
-  padding: 0.25rem;
-}
-
-@media (min-width: 640px) {
-  div:not(#home):not(#home *):not(.project-card):not(.skill-card):not(.nav-link):not(.geom-cell):not(.geom-card) {
-    padding: 0.5rem;
+@media (min-width: 768px) {
+  .app-main {
+    margin-bottom: 44px;
   }
 }
 
+/* ─── Scroll Reveal ─────────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(20px); }
+.reveal.visible { animation: fadeUp 0.6s ease-out forwards; }
 
-
-
-
-button {
-  padding: 0.5rem 1rem;
-  margin: 0.125rem;
+/* ─── Surface / Card chrome ─────────────────────────────────── */
+.stellar-card {
+  background: rgba(14, 12, 19, 0.85);
+  border: 1px solid #2B213A;
+  backdrop-filter: blur(12px);
 }
 
-@media (min-width: 640px) {
-  button {
-    padding: 0.75rem 1.5rem;
-    margin: 0.25rem;
-  }
+/* ─── Glow utilities ────────────────────────────────────────── */
+.glow-accent {
+  box-shadow: 0 0 16px rgba(255, 0, 127, 0.35), 0 0 40px rgba(255, 0, 127, 0.12);
+}
+.glow-accent-sm {
+  box-shadow: 0 0 8px rgba(255, 0, 127, 0.4);
 }
 
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 3px; }
+::-webkit-scrollbar-track { background: #040407; }
+::-webkit-scrollbar-thumb { background: #2B213A; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #FF007F; }
 
-
-
-
-/* Grid and flex specific spacing */
-.grid > * {
-  padding: 0.25rem;
-}
-
-@media (min-width: 640px) {
-  .grid > * {
-    padding: 0.5rem;
-  }
-}
-
-.flex > * {
-  padding: 0.125rem;
-}
-
-@media (min-width: 640px) {
-  .flex > * {
-    padding: 0.25rem;
-  }
-}
-
+/* ─── Selection ─────────────────────────────────────────────── */
+::selection { background: rgba(255, 0, 127, 0.22); color: #fff; }

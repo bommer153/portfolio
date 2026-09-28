@@ -1,55 +1,28 @@
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
+  const year = new Date().getFullYear()
   return (
-    <footer className="geom-card bg-slate-900/80 backdrop-blur-md border-t border-blue-500/20 py-12">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-8">   
-          <p className="text-gray-400 mb-6 text-lg">
-            Connect with me on social media
-           
-          </p>
-          <div className="flex justify-center gap-6 mb-8">
-            <a
-              href="https://github.com/bommer153"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-slate-800/30 backdrop-blur-sm transition-all duration-300 hover:bg-blue-500/20 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/20"
-              style={{
-                clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
-              }}
+    <footer style={{ borderTop: '1px solid #1a1a1a', padding: '32px 24px', background: '#080808' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '16px', color: '#f72585', fontWeight: 500 }}>
+          JJ_
+        </span>
+        <p style={{ fontSize: '12px', color: '#333', fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.05em' }}>
+          © {year} Jefferson Jalandoon
+        </p>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          {[
+            { href: 'https://github.com/bommer153', icon: './image/github.svg', label: 'GitHub' },
+            { href: 'https://linkedin.com/in/jefferson-jalandoon-61669427a/', icon: './image/linkedin.svg', label: 'LinkedIn' },
+            { href: 'https://facebook.com/aow.cc', icon: './image/facebook.svg', label: 'Facebook' },
+          ].map(s => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+              style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #1a1a1a', transition: 'border-color 0.2s ease' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#f72585' }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#1a1a1a' }}
             >
-              <img src="./image/github.svg" alt="GitHub" className="w-5 h-5 filter brightness-0 invert" />
+              <img src={s.icon} alt={s.label} style={{ width: '14px', height: '14px', filter: 'brightness(0) invert(1)', opacity: 0.5 }} />
             </a>
-            <a
-              href="https://linkedin.com/in/jefferson-jalandoon-61669427a/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-slate-800/30 backdrop-blur-sm transition-all duration-300 hover:bg-blue-500/20 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/20"
-              style={{
-                clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)'
-              }}
-            >
-              <img src="./image/linkedin.svg" alt="LinkedIn" className="w-5 h-5 filter brightness-0 invert" />
-            </a>
-            <a
-              href="https://facebook.com/aow.cc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-slate-800/30 backdrop-blur-sm transition-all duration-300 hover:bg-blue-500/20 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/20"
-              style={{
-                clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%)'
-              }}
-            >
-              <img src="./image/facebook.svg" alt="Facebook" className="w-5 h-5 filter brightness-0 invert" />
-            </a>
-          </div>
-        </div>
-
-        <div className="border-t border-slate-700/50 pt-6 text-center">
-          <p className="text-gray-400 text-sm">
-            &copy; {currentYear} Jefferson's Portfolio. All rights reserved.
-          </p>        
+          ))}
         </div>
       </div>
     </footer>
